@@ -1,0 +1,405 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+*{
+  margin: 0;
+  padding: 0;
+  list-style:none;
+  text-decoration: none;
+  
+
+}
+h1 { font-family: "Poppins", sans-serif }
+.header 
+{
+  width: 100%;
+  height: 60px;
+  display: block;
+  /*background-color: rgb(49, 47,53);*/
+  background-color: black;
+}
+.logo
+{
+  width: 1px;
+  height: 1px;
+  display: block;
+}
+#logo2
+{
+width: 130px; ;
+height: 40px;
+margin: 10px 5px 10px;
+
+}
+nav
+{
+position: relative;
+margin-bottom: auto 0;
+width: 100%;
+height: 30px;
+background-color:black;
+
+font-size: 0;
+box-shadow: 0 .2px 3px 0 rgb(0,0,0,.1);
+}
+nav a
+{
+  font-size: 15px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  font-style: normal; 
+  font-variant: normal; 
+  font-weight: 700; 
+  line-height: 26.4px;
+  /*text-transform: uppercase;*/
+  color: white;
+  text-decoration:none;
+  position: relative;
+  z-index: 1;
+  display:inline-block;
+  text-align: center;
+
+}
+nav .animation
+{
+  position: absolute;
+  height: 5px;
+  bottom: 0;
+  z-index: 0;
+  background: #1abc9c;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 25%;
+  transition: all .5s ease 0s;
+}
+a:nth-child(1)
+{
+  width: 25%;
+
+}
+nav .nav-home,a:nth-child(1):hover~.animation
+{
+  width: 25%;
+  left: 0;
+
+}
+a:nth-child(2)
+{
+  width: 25%;
+  
+}
+nav .nav-add,a:nth-child(2):hover~.animation
+{
+  width: 25%;
+  left: 25%;
+
+}
+a:nth-child(3)
+{
+  width: 25%;
+  
+}
+nav .nav-history,a:nth-child(3):hover~.animation
+{
+  width: 25%;
+  left: 50%;
+
+}
+a:nth-child(4)
+{
+  width: 25%;
+  
+}
+nav .nav-about,a:nth-child(4):hover~.animation
+{
+  width: 25%;
+  left: 75%;
+
+}
+
+
+/*--------------------------------------------------------------------------------------------------------------*/
+.mainbody
+{
+   
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size:medium;
+  font-weight:bolder;
+  
+  
+}
+.box-wrapper    /*box around switches*/
+{
+  
+  margin: 10px 15px 10px 15px;
+  
+  width: auto;
+  display:"flex";
+  flex-direction: row;
+  border:seashell;
+  padding: 3px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgb(94, 92, 92);
+  
+
+}
+
+
+/* The switch - the box around the slider */
+.switch {
+  
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+ /*------------------------------------------------------------------------------------------------------------------*/
+ /*About // contact us*/
+ input{
+  width: 80px;
+  
+}
+.contact, .contact a{
+margin: 10px 5px 10px;
+font-size: 15px;
+color: black;
+text-decoration: underline;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-weight: bolder;
+
+}
+
+section {
+  margin-top: 0px;
+  height: 100vh;
+  width: 100%;
+  background-color: aliceblue;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  /*flex-direction: column;*/
+}
+.container {
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0px 0px 20px #00000010;
+  background-color: white;
+  border-radius: 0;
+  margin-bottom: 20px;
+}
+.form-group {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 15px;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 5px;
+  font-size: 15px;
+  border: 1px solid rgba(128, 128, 128, 0.199);
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 5px;
+}
+
+textarea {
+  resize: vertical;
+}
+button[type="submit"] {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 8px;
+  background-color: #10f84a;
+  font-family: "Montserrat";
+  color: rgb(27, 166, 247);
+  text-align: center;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s ease background-color;
+}
+button[type="submit"]:hover {
+  background-color: rgb(214, 226, 236);
+}
+#status {
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+#status.success {
+  background-color: rgb(211, 250, 153);
+  animation: status 4s ease forwards;
+}
+#status.error {
+  background-color: rgb(250, 129, 92);
+  color: white;
+  animation: status 4s ease forwards;
+}
+@keyframes status {
+  0% {
+    opacity: 1;
+    pointer-events: all;
+  }
+  90% {
+    opacity: 1;
+    pointer-events: all;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+
+
+
+
+ /*--------------------------------------------------------------------------------------------------------------*/
+/*add_popup*/
+.rounded{
+  max-width: 100%;
+  width: 150px;
+  background-color: #f0f0f0;
+  margin: 5px 0;
+  height: 25px;
+  border-radius: 50px;
+  
+  padding: 0 0.4rem;
+  position: relative;
+}
+input,select{
+  width: 50%;
+}
+
+
+ /* about_popup follow us */
+
+h1 {
+  margin-top: 80%;
+  text-align: center;
+  font-size: small;
+  opacity: 80%;
+}
+.social-menu ul {
+    position: absolute;
+    top: 90%;
+    bottom: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+.social-menu ul li {
+    list-style: none;
+    margin: 0 10px;
+}
+.social-menu ul li .fab {
+    color: #000000;
+    font-size: medium;
+    line-height: 30px;
+    transition: .5s;
+}
+.social-menu ul li .fab:hover {
+    color: #ffff;
+}
+.social-menu ul li a {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color:white;
+    text-align: center;
+    transition: 0.5s;
+    transform: translate(0,0px);
+    box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.5);
+}
+.social-menu ul li a:hover {
+    transform: rotate(0deg) skew(0deg) translate(0, -10px);
+}
+.social-menu ul li:nth-child(1) a:hover {
+    background-color: #3b5999;
+}
+.social-menu ul li:nth-child(2) a:hover {
+    background-color: #55acee;
+}
+.social-menu ul li:nth-child(3) a:hover {
+    background-color: #e4405f;
+}
+.social-menu ul li:nth-child(4) a:hover {
+    background-color: #cd201f;
+}
+.social-menu ul li:nth-child(5) a:hover {
+    background-color: #0077B5;
+}
+
+input[type="submit"]{
+  border: 0;
+  padding: 10px 15px;
+  display: block;
+  margin: 15px 60px;
+  height: 30px;
+  width: 60px;
+ }  
+
+
+ 

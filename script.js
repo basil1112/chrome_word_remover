@@ -4,6 +4,13 @@
 console.log('***************content script******************')
 let BASE_URL = "http://localhost:3000";
 
+var ACTION = Object.freeze({
+  REPLACE: 1,
+  REMOVE: 0,
+  BlUR: 2
+})
+
+
 let found_bully = false;
 
 let bullyWordArray = [];
@@ -51,13 +58,29 @@ async function replaceWord(obj, isLast) {
     }, function (items) {
       console.log("ITEM", items)
       temp_url = items.activeURL.tabURL;
-      process(obj, isLast, temp_url)
+
+      chrome.storage.sync.get({
+        actionToTake: {}
+      }, function (items) {
+        if (items) {
+          obj.type = items.actionToTake.type;
+          console.log("ACTION", obj.type);
+          process(obj, isLast, temp_url)
+        }
+      });
+
     });
   }
   else {
-    process(obj, isLast, temp_url)
+    chrome.storage.sync.get({
+      actionToTake: {}
+    }, function (items) {
+      if (items) {
+        obj.type = items.actionToTake.type;
+        process(obj, isLast, temp_url)
+      }
+    });
   }
-
 }
 
 String.prototype.replaceArray = function (find, replace) {
@@ -145,7 +168,7 @@ function process(obj, isLast, temp_url) {
               }
             }
           }
-          else if (obj.type == '1') {
+          else if (obj.type == '2') {
             //blur
             for (k = 0; k < values.length; k++) {
               values[k] = "blur"
@@ -263,14 +286,14 @@ function process(obj, isLast, temp_url) {
         body = body + " WORD : \n" + unique[i].word + "  \n URL : " + unique[i].url.substring(0, 25);
       }
 
-      if (unique[0].url.indexOf("youtube")) {
+      if (unique[0].url.indexOf("youtube") > 0) {
         supportEmail = "support@you.tube.in"
         foundBully(body, supportEmail)
-      } else if (unique[0].url.indexOf("facebook")) {
+      } else if (unique[0].url.indexOf("facebook") > 0) {
         supportEmail = "facebook@facevook.in"
         foundBully(body, supportEmail)
       }
-      else if (unique[0].url.indexOf("instagram")) {
+      else if (unique[0].url.indexOf("instagram") > 0) {
         supportEmail = "facebook@facevook.in"
         foundBully(body, supportEmail)
       }
@@ -299,9 +322,19 @@ function containsAny(source, target) {
  * @param {method} word 
  */
 function foundBully(body, supportEmail) {
-  //TODO
-  // based on report button enable 
-  window.location.href = `mailto:basil@gmail.com?subject=Buggy Word&body=${body}`;
+
+  chrome.storage.sync.get({
+    reportAction: {}
+  }, function (items) {
+    if (items) {
+      console.log("send report", items);
+      if (items.reportAction.sendReport == 1) {
+        window.location.href = `mailto:${supportEmail}?subject=Buggy Word&body=${body}`;
+      }
+    }
+  });
+
+
 }
 
 

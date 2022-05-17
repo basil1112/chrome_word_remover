@@ -3,6 +3,7 @@ let BASE_URL = "http://localhost:3000"
 
 
 function buildSaveArray() {
+  
   console.log("reached here");
   var element = document.querySelectorAll('.keyword-row');
   for (var i = 0; i < element.length; i++) {
@@ -18,6 +19,8 @@ function buildSaveArray() {
 }
 
 function insertWordToDatabase(obj) {
+
+  console.log("insert word to database");
 
   fetch(`${BASE_URL}/insertWord`, {
     method: "POST",
@@ -35,6 +38,7 @@ function insertWordToDatabase(obj) {
 
     // Converting to JSON
     .then(response => {
+      console.log(response);
       var status = document.getElementById('status');
       status.textContent = 'Options saved.';
       setTimeout(function () {
@@ -146,4 +150,8 @@ document.querySelector('.add-keyword').addEventListener('click', function () {
 
 
 document.addEventListener('DOMContentLoaded', restore_options);
+console.log("kidding");
+console.log(document.getElementById('save'));
+
 document.getElementById('save').addEventListener('click', buildSaveArray);
+console.log("kidding2 ");
