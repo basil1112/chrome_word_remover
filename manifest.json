@@ -1,18 +1,24 @@
 {
   "name": "Custodian",
-  "version": "0.0.1",
-  "description": "Replace words across the web",
+  "version": "1.0.0",
+  "description": "Find and replace bullying words",
   "manifest_version": 3,
-  "background":{
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline' https://music.yandex.ru/;"
+  },
+  "background": {
     "service_worker": "serviceWorker.js"
   },
   "action": {
-    "default_popup": "index.html",
-    "default_icon":"logo.png"
+    "default_popup": "home.html",
+    "default_icon": "logo.png"
   },
-  "host_permissions": ["<all_urls>"],
-  "permissions": ["scripting", "storage","tabs"],
-  "options_ui":{
-    "page": "opt.html"
-  }
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "permissions": [
+    "scripting",
+    "storage",
+    "tabs"
+  ]
 }

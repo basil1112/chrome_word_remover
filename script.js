@@ -298,7 +298,7 @@ function process(obj, isLast, temp_url) {
         foundBully(body, supportEmail)
       }
       else {
-        supportEmail = "basil1112@gmail.com"
+        supportEmail = "custodian@gmail.com"
         foundBully(body, supportEmail)
       }
 
